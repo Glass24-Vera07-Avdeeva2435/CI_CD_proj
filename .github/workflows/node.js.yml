@@ -8,9 +8,10 @@ jobs:
    my_build_job:
       runs-on: ubuntu-latest
       steps:
-        -uses: actions/checkout@v3
-        -name: npm install,test and build
-          run:|
+env: actions/checkout@v3
+         
+run-name: npm install,test and build
+ run:|
            npm install
            npm run build
    
