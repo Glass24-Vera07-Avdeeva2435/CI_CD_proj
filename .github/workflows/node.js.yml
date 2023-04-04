@@ -1,17 +1,26 @@
 name: CI
+
 on:
-  push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
+    # События, которые запускает
+    push:
+      branches: [ "main" ]
+    pull_request:
+      branches: [ "main" ]
+    
+#jobs запускается параллельно, если не указана последовательность
 jobs:
+   # Название job вы можете назвать как угодно
    my_build_job:
+      # Операционная система в виртуальной машине, в которой запускаются процессы
       runs-on: ubuntu-latest
       steps: 
-         -uses: action
+         # Actions от github: прверяет репозиторий, гид и т.д.
+         -uses: actions/checkout@v3
          
-run-name: npm install,test and build
- run:|
+         # Устанавливаем все необходимые зависимости и запускаем тесты node
+         -name: npm install,test and build
+          run:|
            npm install
            npm run build
+        
    
